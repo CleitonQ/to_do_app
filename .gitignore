@@ -1,0 +1,92 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Ignorar diretórios fora do repositório atual
+../rick_morty/
+../tradutor/
+../Nova pasta/
+../app_one/
+../controle-horas-v2-main/
+../firebase.zip
+../firebase/
+../first_app_flutter/
+../firt_app_flutter/
+../horas_v3 - Copia (2)/
+../horas_v3 - Copia tela de login ok/
+../horas_v3 - Copia/
+../horas_v3 old/
+../horas_v3_android/
+../kode-start/
+../rick-morty1/
+../rick_morty/lib/components/
+../rick_morty/lib/data/
+../rick_morty/lib/models/
+../rick_morty/lib/pages/
+../rick_morty/lib/theme/
+../rick_morty/web/icons/logo_icon.png
+../rick_morty/web/icons/profile_icon.png
+../to_do_app1/
+../tradutor/.gitignore
+../tradutor/.metadata
+../tradutor/README.md
+../tradutor/analysis_options.yaml
+../tradutor/android/
+../tradutor/devtools_options.yaml
+../tradutor/ios/
+../tradutor/l1on.yaml
+../tradutor/lib/l10n/app_localizations.dart
+../tradutor/lib/l10n/app_localizations_en.dart
+../tradutor/lib/l10n/app_localizations_pt.dart
+../tradutor/lib/l10n/l10n.dart
+../tradutor/lib/main.dart
+../tradutor/linux/
+../tradutor/macos/
+../tradutor/pubspec.lock
+../tradutor/pubspec.yaml
+../tradutor/test/
+../tradutor/web/
+../tradutor/windows/
+../untitled/
