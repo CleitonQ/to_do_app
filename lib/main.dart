@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/todo_list_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -22,4 +21,3 @@ class MyApp extends StatelessWidget {
     ); // MaterialApp
   }
 }
-

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/todo_list_widget.dart';
 
 class TodoListPage extends StatefulWidget {
-  const TodoListPage({super.key,});
+  const TodoListPage({super.key});
 
   @override
   State<TodoListPage> createState() => _TodoListPageState();
@@ -15,13 +15,14 @@ class _TodoListPageState extends State<TodoListPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('To Do App'),
+        centerTitle: true, // Aqui é onde o título é centralizado
       ), // AppBar
       body: ListView(
         children: [
-          //TODO: widget para a nova tarefa
+          // TODO: widget para a nova tarefa
           TodoListWidget(),
-        ],
-      )
-    ); // Scaffold
+        ], // ListView
+      ), // Scaffold
+    );
   }
 }
