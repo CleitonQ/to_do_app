@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/service_locator.dart';
 import 'package:to_do_app/todo.dart';
+import 'package:to_do_app/todo_list_controller.dart';
 
 class TodoItemWidget extends StatefulWidget {
   const TodoItemWidget({super.key, required this.todo});
@@ -12,6 +14,8 @@ class TodoItemWidget extends StatefulWidget {
 
 class _TodoItemWidgetState extends State<TodoItemWidget> {
   late TextEditingController todoController;
+  final controller = getIt<TodoListController>();
+
 
   @override
   void initState() {
@@ -42,14 +46,15 @@ class _TodoItemWidgetState extends State<TodoItemWidget> {
   }
 
   void onChanged(String task) {
-    print(task);
+    controller.update(widget.todo.id, task);
   }
 
   void onToggled(_) {
-    print("Toggled");
+    controller.toggle(widget.todo.id);
   }
 
   void onDeleted() {
-    print('deleted');
+    controller.remove(widget.todo.id);
   }
+
 }
