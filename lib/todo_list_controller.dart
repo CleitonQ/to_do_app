@@ -7,12 +7,15 @@ class TodoListController {
   final todoListNotifier = TodoListNotifier();
   final filterNotifier = ValueNotifier<TodoFilter>(TodoFilter.all);
 
-  void init(){
+  void init() {
     todoListNotifier.init();
-    filterNotifier.addListener(() => todoListNotifier.changeFilter(filterNotifier.value));
+    filterNotifier.addListener(() {
+      // Chama a função de filtragem sempre que o filtro for alterado
+      todoListNotifier.changeFilter(filterNotifier.value);
+    });
   }
 
-  void add(String task){
+  void add(String task) {
     todoListNotifier.add(Todo.create(task));
   }
 
@@ -28,7 +31,21 @@ class TodoListController {
     todoListNotifier.remove(id);
   }
 
-  void changeFilter(TodoFilter filter){
-    filterNotifier.value = filter;
+  void changeFilter(TodoFilter filter) {
+    filterNotifier.value = filter; // Muda o filtro
+    // Agora o filtro é imediatamente aplicado
+    todoListNotifier.changeFilter(filter);
+  }
+
+  void reorder(int oldIndex, int newIndex) {
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+
+    final todos = todoListNotifier.value;
+    final todo = todos.removeAt(oldIndex);
+    todos.insert(newIndex, todo);
+
+    todoListNotifier.reorder(todos);
   }
 }

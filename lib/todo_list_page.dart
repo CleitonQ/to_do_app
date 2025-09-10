@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/new_todo_widget.dart';
 import 'package:to_do_app/service_locator.dart';
 import 'package:to_do_app/todo_filter.dart';
-import 'package:to_do_app/todo_item_widget.dart';
 import 'package:to_do_app/todo_list_controller.dart';
 import 'package:to_do_app/todo_list_widget.dart';
 
@@ -22,7 +21,7 @@ class _TodoListPageState extends State<TodoListPage> {
   ];
 
   @override
-  void initState(){
+  void initState() {
     controller.init();
     super.initState();
   }
@@ -37,25 +36,26 @@ class _TodoListPageState extends State<TodoListPage> {
           title: const Text('To Do App'),
           centerTitle: true, // Aqui é onde o título é centralizado
           bottom: TabBar(
-              tabs: tabs,
-              onTap: (index){
-                controller.changeFilter(TodoFilter.values[index]);
+            tabs: tabs,
+            onTap: (index) {
+              controller.changeFilter(TodoFilter.values[index]);
             },
           ),
         ), // AppBar
         body: ListView(
           children: [
+            // ValueListenableBuilder para exibir NewTodoWidget
             ValueListenableBuilder(
               valueListenable: controller.filterNotifier,
               builder: (context, filter, child) {
-
-                if (filter == TodoFilter.completed){
-                  return const SizedBox.shrink();
+                // Mostrar NewTodoWidget apenas quando o filtro for 'Todas' ou 'A fazer'
+                if (filter == TodoFilter.completed) {
+                  return const SizedBox.shrink(); // Não exibe para tarefas concluídas
                 }
 
-                return const NewTodoWidget();
-                  }, // ListView.builder
-                ),
+                return const NewTodoWidget(); // Exibe o widget de adicionar nova tarefa
+              },
+            ),
             TodoListWidget(),
           ], // ListView
         ), // Scaffold
