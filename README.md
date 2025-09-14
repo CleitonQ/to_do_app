@@ -138,3 +138,16 @@ Copiar código
 
 - **Licença**: Tipo de licença usada no projeto.
 
+## 📇 Créditos
+
+<p align="center">
+  Desenvolvido com 💙 por <strong>Cleiton Queiroz</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/cleitonqueiroz-dev" target="_blank">
+    <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+  <a href="https://github.com/CleitonQ" target="_blank">
+    <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
