@@ -80,25 +80,48 @@ Copiar código
 
 flutter run
 
-Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
-lib/
+```bash
+to_do_app/
+│
+├── lib/
+│   ├── main.dart                  # Arquivo principal que inicializa o app.
+│   ├── todo_list_page.dart        # Tela principal do app que exibe as tarefas.
+│   ├── todo_list_controller.dart  # Controlador que gerencia a lógica de tarefas.
+│   ├── todo.dart                  # Modelo que representa uma tarefa.
+│   ├── storage_service.dart       # Serviço de armazenamento que usa Hive para persistência de dados.
+│   ├── todo_list_notifier.dart    # Notificador para gerenciar o estado das tarefas.
+│   ├── service_locator.dart       # Configuração de injeção de dependência com GetIt.
+│   ├── new_todo_widget.dart       # Widget para adicionar uma nova tarefa.
+│   └── todo_filter.dart           # Definição dos filtros para as tarefas (ex: Todas, A fazer, Concluídas).
+│
+├── android/                       # Código nativo Android
+│   ├── app/
+│   │   ├── src/
+│   │   │   └── main/
+│   │   │       └── kotlin/
+│   │   │           └── com/
+│   │   │               └── example/
+│   │   │                   └── todoapp/
+│   │   │                       └── MainActivity.kt
+│   │   └── build.gradle
+│   └── gradle/
+│       └── wrapper/
+│           └── gradle-wrapper.properties
+│
+├── ios/                           # Código nativo iOS
+│   ├── Runner/
+│   │   └── AppDelegate.swift
+│   │   └── Main.storyboard
+│   └── Podfile
+│
+├── pubspec.yaml                  # Arquivo de configuração do Flutter, dependências e assets.
+├── README.md                     # Este arquivo.
+└── .gitignore                    # Arquivo para ignorar arquivos do Git (ex: build, .dart_tool, etc.).
 
-main.dart: Arquivo principal que inicializa o app.
-
-todo_list_page.dart: Tela principal do app que exibe as tarefas.
-
-todo_list_controller.dart: Controlador que gerencia a lógica de tarefas.
-
-todo.dart: Modelo que representa uma tarefa.
-
-storage_service.dart: Serviço de armazenamento que usa Hive para persistência de dados.
-
-todo_list_notifier.dart: Notificador para gerenciar o estado das tarefas.
-
-service_locator.dart: Configuração de injeção de dependência com GetIt.
-
-new_todo_widget.dart: Widget para adicionar uma nova tarefa.
+```
+---
 
 Contribuindo
 
