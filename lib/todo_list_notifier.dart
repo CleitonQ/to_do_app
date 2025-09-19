@@ -13,6 +13,7 @@ class TodoListNotifier extends ValueNotifier<List<Todo>> {
 
   List<Todo> get _todos => _allTodosNotifier.value;
 
+  // Inicializa o notifier e carrega os todos
   void init() async {
     _allTodosNotifier.value = await _storageService.getTodos();
     _updateTodoList();
@@ -23,16 +24,20 @@ class TodoListNotifier extends ValueNotifier<List<Todo>> {
     });
   }
 
-  void add(Todo todo){
+  // Adiciona uma nova tarefa
+  void add(Todo todo) {
     _allTodosNotifier.value = [..._todos, todo];
   }
 
+  // Atualiza uma tarefa existente
   void update(String id, String task) {
     _allTodosNotifier.value = [
       for (final todo in _todos)
         if (todo.id != id) todo else todo.copyWith(task: task)
     ];
   }
+
+  // Alterna o status de uma tarefa (completa/incompleta)
   void toggle(String id) {
     _allTodosNotifier.value = [
       for (final todo in _todos)
@@ -40,30 +45,42 @@ class TodoListNotifier extends ValueNotifier<List<Todo>> {
     ];
   }
 
+  // Remove uma tarefa
   void remove(String id) {
     _allTodosNotifier.value = _todos.where((todo) => todo.id != id).toList();
   }
 
+  // Reordena a lista de tarefas
   void reorder(List<Todo> todos) {
     _allTodosNotifier.value = todos;
   }
 
-  void changeFilter(TodoFilter filter){
+  // Altera o filtro
+  void changeFilter(TodoFilter filter) {
     _currentFilter = filter;
-    _updateTodoList();
+    _updateTodoList();  // Atualiza a lista de acordo com o novo filtro
   }
 
-  void _updateTodoList(){
-    value = _mapFilterToTodoList();
+  // Atualiza a lista com base no filtro
+  void _updateTodoList() {
+    value = _mapFilterToTodoList();  // Aplica o filtro nas tarefas
   }
 
+  // Salva a lista de tarefas no banco de dados
   void _saveTodoListToDB() {
     _storageService.saveTodos(_todos.where((todo) => todo.task.isNotEmpty).toList());
   }
 
-  List<Todo> _mapFilterToTodoList() => switch (_currentFilter) {
-    TodoFilter.incomplete => _todos.where((todo) => !todo.completed).toList(),
-    TodoFilter.completed => _todos.where((todo) => todo.completed).toList(),
-    _ => _todos
-  };
+  // Mapeia o filtro para as tarefas (concluídas, incompletas, ou todas)
+  List<Todo> _mapFilterToTodoList() {
+    switch (_currentFilter) {
+      case TodoFilter.incomplete:
+        return _todos.where((todo) => !todo.completed).toList();
+      case TodoFilter.completed:
+        return _todos.where((todo) => todo.completed).toList();
+      case TodoFilter.all:
+      default:
+        return _todos;  // Para 'Todas', retorna todas as tarefas
+    }
+  }
 }

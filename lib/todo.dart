@@ -25,9 +25,9 @@ class Todo {
 
   Todo copyWith({String? task, bool? completed}) {
     return Todo(
-      id: id,
-      task: task ?? this.task,
-      completed: completed ?? this.completed
+        id: id,
+        task: task ?? this.task,
+        completed: completed ?? this.completed
     );
   }
 

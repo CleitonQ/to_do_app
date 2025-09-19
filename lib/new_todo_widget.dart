@@ -15,7 +15,6 @@ class _NewTodoWidgetState extends State<NewTodoWidget> {
   final todoNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
-
   @override
   void initState() {
     super.initState();
@@ -30,10 +29,10 @@ class _NewTodoWidgetState extends State<NewTodoWidget> {
           focusNode: todoNode,
           controller: todoController,
           decoration: const InputDecoration.collapsed(
-            hintText: 'escreva uma nova tarefa...',
+            hintText: 'Escreva uma nova tarefa...',
           ), // InputDecoration.collapsed
-          validator: (v){
-            if (v == null || v.isEmpty){
+          validator: (v) {
+            if (v == null || v.isEmpty) {
               return 'Não pode ser vazio';
             }
             return null;
@@ -53,11 +52,17 @@ class _NewTodoWidgetState extends State<NewTodoWidget> {
   }
 
   void onSubmitted() {
-   if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()) return;
 
-    controller.add(todoController.text);
+    // Se o campo de texto estiver vazio, a tarefa será excluída automaticamente
+    if (todoController.text.isEmpty) {
+      controller.remove(todoController.text);  // Remover a tarefa
+      return;  // Não adiciona a tarefa vazia
+    }
+
+    controller.add(todoController.text);  // Adiciona a tarefa normalmente
     formKey.currentState!.reset();
-
     todoNode.unfocus();
+    todoController.clear(); // Limpa o campo de texto após adicionar
   }
 }
