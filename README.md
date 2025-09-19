@@ -52,34 +52,28 @@ Antes de rodar este projeto, você precisa ter o seguinte instalado em seu siste
 
 1\. **Clone este repositório** para o seu computador:
 
-   ```bash
+```bash
 
-   git clone https://github.com/seuusuario/to_do_app.git
-
+git clone https://github.com/seuusuario/to_do_app.git
+```
 Navegue para a pasta do projeto:
 
-bash
-
 Copiar código
-
+```bash
 cd to_do_app
-
+```
 Instale as dependências do Flutter:
 
-bash
-
 Copiar código
-
+```bash
 flutter pub get
-
+```
 Execute o aplicativo em um emulador Android ou dispositivo físico:
 
-bash
-
 Copiar código
-
+```bash
 flutter run
-
+```
 ## 📁 Estrutura do Projeto
 
 ```bash
@@ -174,3 +168,7 @@ Copiar código
   <a href="https://github.com/CleitonQ" target="_blank">
     <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
+  <a href="https://wa.me/5515996295847" target="_blank">
+    <img src="https://img.shields.io/badge/-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+  </a>
+</p>
